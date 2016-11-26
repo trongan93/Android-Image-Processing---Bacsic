@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -17,6 +18,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.trongan93.imageprocessingbasicnoneopencv.ImageProcessing.ScaleImage;
 
 import java.io.File;
 
@@ -76,10 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 int columnIndex = cursor.getColumnIndex(FILE[0]);
                 ImageDecode = cursor.getString(columnIndex);
                 cursor.close();
+                Bitmap bitmapSourceImage = BitmapFactory.decodeFile(ImageDecode);
+                Bitmap bitmapDestinationImage = ProcessScalingImage(bitmapSourceImage);
 
-
-                imgSourceImage.setImageBitmap(BitmapFactory.decodeFile(ImageDecode));
-                imgDestinationImage.setImageBitmap(BitmapFactory.decodeFile(ImageDecode));
+                imgSourceImage.setImageBitmap(bitmapSourceImage);
+                imgDestinationImage.setImageBitmap(bitmapDestinationImage);
                 Log.d("trongan93","Success set Image Bitmap");
             }
         }
@@ -90,9 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Checks if the app has permission to write to device storage
-     *
      * If the app does not has permission then the user will be prompted to grant permissions
-     *
      * @param activity
      */
     public static void VerifyStoragePermissions(Activity activity) {
@@ -134,5 +136,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return dir.delete();
+    }
+    /**
+     * Scale Image
+     */
+    public Bitmap ProcessScalingImage(Bitmap sourceBitmap){
+        ScaleImage scaleImage = new ScaleImage(mActivity, DstWidth, DstHeight);
+        Bitmap destinationBitmap = scaleImage.DownScaleBitmap(sourceBitmap);
+        return destinationBitmap;
     }
 }
