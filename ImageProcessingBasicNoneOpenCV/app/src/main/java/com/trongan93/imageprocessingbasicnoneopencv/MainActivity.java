@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnGetGallery;
     ImageView imgSourceImage, imgDestinationImage;
     Activity mActivity;
+    int DstWidth, DstHeight;
 
     // Storage Permissions - from API 23+
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Delete Cache - when reload App
         DeleteCache(this);
+
+        //Get value Destination Image want to Down/Up Sample.
+        DstHeight = getResources().getInteger(R.integer.destination_height);
+        DstWidth = getResources().getInteger(R.integer.destination_width);
 
         btnGetGallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 int columnIndex = cursor.getColumnIndex(FILE[0]);
                 ImageDecode = cursor.getString(columnIndex);
                 cursor.close();
+
 
                 imgSourceImage.setImageBitmap(BitmapFactory.decodeFile(ImageDecode));
                 imgDestinationImage.setImageBitmap(BitmapFactory.decodeFile(ImageDecode));
