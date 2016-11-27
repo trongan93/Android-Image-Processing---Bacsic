@@ -26,13 +26,14 @@ public class ScaleImage {
         int width = Math.round((float)ratio * mSourceWidth);
         int height = Math.round((float)ratio * mSourceHeight);
 
-        if(mSourceWidth > mDstWidth || mSourceHeight > mDstHeight){
-            destinationBitmap = Bitmap.createScaledBitmap(sourceBitmap,width,height,false);
-        }
-        else
-        {
-            destinationBitmap = sourceBitmap;
-        }
+//        if(mSourceWidth > mDstWidth || mSourceHeight > mDstHeight){
+//            destinationBitmap = Bitmap.createScaledBitmap(sourceBitmap,width,height,false);
+//        }
+//        else
+//        {
+//            destinationBitmap = sourceBitmap;
+//        }
+        destinationBitmap = Bitmap.createScaledBitmap(sourceBitmap,width,height,false);
         return destinationBitmap;
     }
     public Bitmap DowScaleBitmap(Bitmap sourceBitmap, float maxImageSize, boolean filter){
