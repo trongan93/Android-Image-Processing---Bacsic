@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.trongan93.imageprocessingbasicnoneopencv.ImageProcessing.ImageArray;
 import com.trongan93.imageprocessingbasicnoneopencv.ImageProcessing.ScaleImage;
 
 import java.io.File;
@@ -82,12 +83,17 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap bitmapSourceImage = BitmapFactory.decodeFile(ImageDecode);
                 Bitmap bitmapDestinationImage = ProcessScalingImage(bitmapSourceImage);
 
+                ImageArray imageArray = new ImageArray(bitmapSourceImage);
+                imageArray.PrintBitMapIntArray();
+
+
                 imgSourceImage.setImageBitmap(bitmapSourceImage);
                 imgDestinationImage.setImageBitmap(bitmapDestinationImage);
                 Log.d("trongan93","Success set Image Bitmap");
             }
         }
         catch (Exception e){
+            Log.e("anbt","Exception: " + e.toString());
             Toast.makeText(this, "Please try again", Toast.LENGTH_LONG).show();
         }
     }
