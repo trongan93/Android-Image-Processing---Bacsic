@@ -9,11 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5133da5b-86bf-4108-96e7-c3967470b760" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/trongan93/imageprocessingbasicnoneopencv/ImageProcessing/ImageArray.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/trongan93/imageprocessingbasicnoneopencv/ImageProcessing/ImageArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/trongan93/imageprocessingbasicnoneopencv/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/trongan93/imageprocessingbasicnoneopencv/MainActivity.java" />
-    </list>
+    <list default="true" id="5133da5b-86bf-4108-96e7-c3967470b760" name="Default" comment="" />
     <ignored path="ImageProcessingBasicNoneOpenCV.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
